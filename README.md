@@ -6,20 +6,8 @@ A full-stack demonstration of Jira Cloud API integration with a modern `React` f
 
 This application provides a user-friendly interface for interacting with Jira Cloud through a secure backend API. It demonstrates best practices for API authentication, error handling, and real-time data fetching.
 
-**Projects Overview**
-<img width="1466" height="861" alt="image" src="https://github.com/user-attachments/assets/27b4b144-16cd-44ec-b968-8599bcb86984" />
+https://github.com/user-attachments/assets/a1e991cf-63c2-42b7-be5e-615c1b38ded8
 
-**Search Issues**
-<img width="1952" height="851" alt="image" src="https://github.com/user-attachments/assets/ac158678-a9af-4179-9d16-0976b1d06692" />
-
-**Issue details**
-<img width="1948" height="1488" alt="image" src="https://github.com/user-attachments/assets/5c720adc-a5d4-47d8-8981-a8c5301964b7" />
-
-**Create Issue**
-<img width="1722" height="889" alt="image" src="https://github.com/user-attachments/assets/96c63c85-581c-4700-a0c4-c159140ed714" />
-
-**Advanced API Requests**
-<img width="2409" height="1373" alt="image" src="https://github.com/user-attachments/assets/7d6dfc57-2932-44fb-8972-03d4f937dbf5" />
 
 
 ### Key Features
