@@ -73,7 +73,7 @@ Before you begin, ensure you have the following installed:
 
 ```bash
 git clone https://github.com/AbhishekSinghPursuit/Jira-Integration-Demo.git
-cd SDLC-micro
+cd Jira-Integration-Demo
 ```
 
 ### 2. Install Backend Dependencies
@@ -122,7 +122,7 @@ PORT=4000
 
 | Variable | Description | Example |
 |----------|-------------|---------|
-| `JIRA_BASE_URL` | Your Jira Cloud instance URL | `https://pursuitsoftware.atlassian.net` |
+| `JIRA_BASE_URL` | Your Jira Cloud instance URL | `https://your-domain.atlassian.net` |
 | `JIRA_EMAIL` | Email associated with your Jira account | `user@company.com` |
 | `JIRA_API_TOKEN` | API token generated in Jira Cloud | `a1b2c3d4e5f6g7h8` |
 | `PORT` | Port for the backend server | `4000` (default) |
@@ -722,7 +722,7 @@ npm run build
 ## 📝 Project Structure
 
 ```
-SDLC-micro/
+Jira-Integration-Demo/
 ├── backend/
 │   ├── src/
 │   │   ├── index.js              # Express app setup
