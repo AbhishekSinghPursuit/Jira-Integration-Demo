@@ -511,19 +511,11 @@ Advanced interface for sending custom Jira API requests.
 4. View project key, name, and type in the table
 
 **API Flow:**
-```
-Frontend: ProjectsView mounts
-        ↓
-getProjects() → GET /api/projects
-        ↓
-Backend: jiraRequest('GET', '/project')
-        ↓
-Jira: GET /rest/api/3/project
-        ↓
-Response: Project list displayed in table
-```
+
+<img width="896" height="240" alt="_- visual selection (9)" src="https://github.com/user-attachments/assets/c61bca20-3783-4cf8-94c6-3c93ea643353" />
 
 ---
+
 
 ### Example 2: Search Issues with JQL
 
@@ -548,17 +540,9 @@ status = "In Progress" AND priority = High
 ```
 
 **API Flow:**
-```
-Frontend: User enters JQL and clicks Search
-        ↓
-searchIssues() → GET /api/issues/search?jql=...
-        ↓
-Backend: jiraRequest('POST', '/search/jql', { body: { jql, ... } })
-        ↓
-Jira: POST /rest/api/3/search/jql
-        ↓
-Response: Issue list displayed in table
-```
+
+<img width="600" height="516" alt="_- visual selection (8)" src="https://github.com/user-attachments/assets/5e383150-978a-46c4-ad9b-426ea84eec3e" />
+
 
 ---
 
@@ -570,17 +554,9 @@ Response: Issue list displayed in table
 4. View detailed information including status, assignee, priority
 
 **API Flow:**
-```
-Frontend: User enters key and clicks Load
-        ↓
-getIssue('ESA-1') → GET /api/issues/ESA-1
-        ↓
-Backend: jiraRequest('GET', '/issue/ESA-1', { params: { fields: '...' } })
-        ↓
-Jira: GET /rest/api/3/issue/ESA-1?fields=...
-        ↓
-Response: Detailed issue information displayed
-```
+
+<img width="865" height="636" alt="_- visual selection (7)" src="https://github.com/user-attachments/assets/05556b3b-4386-41a1-b618-cac43716e2b8" />
+
 
 ---
 
@@ -596,18 +572,9 @@ Response: Detailed issue information displayed
 4. Success message shows new issue key
 
 **API Flow:**
-```
-Frontend: User fills form and clicks Create
-        ↓
-createIssue({ projectKey, summary, ... })
-        ↓
-POST /api/issues
-Backend: jiraRequest('POST', '/issue', { body: { fields: { ... } } })
-        ↓
-Jira: POST /rest/api/3/issue
-        ↓
-Response: Issue created, key displayed (e.g., ESA-42)
-```
+
+<img width="625" height="523" alt="_- visual selection (6)" src="https://github.com/user-attachments/assets/94041a28-6cb2-4b69-aedc-bc5921344530" />
+
 
 ---
 
