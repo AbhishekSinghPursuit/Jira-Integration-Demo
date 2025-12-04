@@ -55,3 +55,36 @@ export async function rawJiraRequest({ method, path, params, body }) {
   });
   return res.data;
 }
+
+export async function findSimilarIssues({ projectKey, issueKey, summary }) {
+  const params = {};
+  if (projectKey) params.projectKey = projectKey;
+  if (issueKey) params.issueKey = issueKey;
+  if (summary) params.summary = summary;
+
+  const res = await api.get("/api/issues/similar", { params });
+  return res.data;
+}
+
+// --- Admin: Jira custom fields ---
+
+export async function createCustomFieldApi({ name, description, kind }) {
+  const res = await api.post("/api/admin/jira/custom-fields", {
+    name,
+    description,
+    kind,
+  });
+  return res.data;
+}
+
+export async function bootstrapSdlcFieldsApi() {
+  const res = await api.post("/api/admin/jira/bootstrap-sdlc-fields");
+  return res.data;
+}
+
+export async function listJiraFieldsApi() {
+  const res = await api.get("/api/admin/jira/fields");
+  return res.data;
+}
+
+

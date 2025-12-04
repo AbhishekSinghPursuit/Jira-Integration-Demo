@@ -7,6 +7,7 @@ dotenv.config();
 import projectsRouter from "./routes/projects.js";
 import issuesRouter from "./routes/issues.js";
 import miscRouter from "./routes/misc.js";
+import adminRoutes from "./routes/admin.js";
 
 const app = express();
 
@@ -27,6 +28,7 @@ app.use((req, _res, next) => {
 app.use("/api/projects", projectsRouter);
 app.use("/api/issues", issuesRouter);
 app.use("/api/misc", miscRouter);
+app.use("/api/admin", adminRoutes); // ⚠ Admin-only Jira field management
 
 // Global error handler
 app.use((err, _req, res, _next) => {

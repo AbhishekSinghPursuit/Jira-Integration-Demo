@@ -5,6 +5,7 @@ export default function Sidebar({ selected, onSelect }) {
     { id: "detail", label: "Issue Detail" },
     { id: "create", label: "Create Issue" },
     { id: "advanced", label: "Advanced Request" },
+    { id: "admin", label: "Admin Custom Fields" },
   ];
 
   return (

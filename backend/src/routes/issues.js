@@ -42,6 +42,67 @@ router.get("/search", async (req, res, next) => {
   }
 });
 
+/**
+ * GET /api/issues/similar?projectKey=KEY&issueKey=XYZ-123
+ * OR with summary: /api/issues/similar?projectKey=KEY&summary=...
+ * OR body: { summary, description, projectKey }
+ *
+ * For now, we use Jira text search to find similar issues by summary/description.
+ */
+router.get("/similar", async (req, res, next) => {
+  try {
+    const { projectKey, issueKey } = req.query;
+    let { summary } = req.query;
+
+    if (!projectKey && !issueKey && !summary) {
+      const err = new Error("Provide at least projectKey+issueKey OR summary.");
+      err.status = 400;
+      throw err;
+    }
+
+    // If issueKey is provided, fetch that issue first to get summary
+    if (issueKey) {
+      const issue = await jiraRequest(
+        "GET",
+        `/issue/${encodeURIComponent(issueKey)}`,
+        {
+          params: { fields: "summary,description,project" },
+        }
+      );
+
+      summary = summary || issue.fields.summary;
+    }
+
+    const searchText = (summary || "").split(" ").slice(0, 8).join(" ");
+
+    const jqlParts = [];
+    if (projectKey) jqlParts.push(`project = ${projectKey}`);
+    jqlParts.push(`summary ~ "${searchText}"`);
+
+    const jql = jqlParts.join(" AND ") + " ORDER BY created DESC";
+
+    const body = {
+      jql,
+      maxResults: 10,
+      fields: ["summary", "status", "assignee", "created"],
+    };
+
+    const data = await jiraRequest("POST", "/search/jql", { body });
+
+    const issues = (data.issues || []).filter(
+      (i) => !issueKey || i.key !== issueKey
+    );
+
+    res.json({
+      query: { projectKey, issueKey, searchText },
+      total: issues.length,
+      issues,
+    });
+  } catch (err) {
+    next(err);
+  }
+});
+
 // GET /api/issues/:key  → get issue details from Jira
 router.get("/:key", async (req, res) => {
   const issueKey = req.params.key;

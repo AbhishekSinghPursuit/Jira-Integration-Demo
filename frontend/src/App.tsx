@@ -14,6 +14,7 @@ import IssueDetailView from "./components/IssueDetailView";
 import CreateIssueView from "./components/CreateIssueView";
 // @ts-ignore: no declaration file for AdvancedRequestView.jsx
 import AdvancedRequestView from "./components/AdvancedRequestView";
+import AdminCustomFieldsView from "./components/AdminCustomFieldsView";
 import "./App.css";
 
 function App() {
@@ -35,6 +36,9 @@ function App() {
       break;
     case "advanced":
       content = <AdvancedRequestView />;
+      break;
+    case "admin":
+      content = <AdminCustomFieldsView />;
       break;
     default:
       content = <ProjectsView />;
