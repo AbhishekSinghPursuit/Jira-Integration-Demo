@@ -6,6 +6,10 @@ A full-stack demonstration of Jira Cloud API integration with a modern `React` f
 
 This application provides a user-friendly interface for interacting with Jira Cloud through a secure backend API. It demonstrates best practices for API authentication, error handling, and real-time data fetching.
 
+https://github.com/user-attachments/assets/a1e991cf-63c2-42b7-be5e-615c1b38ded8
+
+
+
 ### Key Features
 
 - **Project Listing**: View all available Jira projects
@@ -73,7 +77,7 @@ Before you begin, ensure you have the following installed:
 
 ```bash
 git clone https://github.com/AbhishekSinghPursuit/Jira-Integration-Demo.git
-cd SDLC-micro
+cd Jira-Integration-Demo
 ```
 
 ### 2. Install Backend Dependencies
@@ -122,7 +126,7 @@ PORT=4000
 
 | Variable | Description | Example |
 |----------|-------------|---------|
-| `JIRA_BASE_URL` | Your Jira Cloud instance URL | `https://pursuitsoftware.atlassian.net` |
+| `JIRA_BASE_URL` | Your Jira Cloud instance URL | `https://your-domain.atlassian.net` |
 | `JIRA_EMAIL` | Email associated with your Jira account | `user@company.com` |
 | `JIRA_API_TOKEN` | API token generated in Jira Cloud | `a1b2c3d4e5f6g7h8` |
 | `PORT` | Port for the backend server | `4000` (default) |
@@ -495,19 +499,11 @@ Advanced interface for sending custom Jira API requests.
 4. View project key, name, and type in the table
 
 **API Flow:**
-```
-Frontend: ProjectsView mounts
-        ↓
-getProjects() → GET /api/projects
-        ↓
-Backend: jiraRequest('GET', '/project')
-        ↓
-Jira: GET /rest/api/3/project
-        ↓
-Response: Project list displayed in table
-```
+
+<img width="896" height="240" alt="_- visual selection (9)" src="https://github.com/user-attachments/assets/c61bca20-3783-4cf8-94c6-3c93ea643353" />
 
 ---
+
 
 ### Example 2: Search Issues with JQL
 
@@ -532,17 +528,9 @@ status = "In Progress" AND priority = High
 ```
 
 **API Flow:**
-```
-Frontend: User enters JQL and clicks Search
-        ↓
-searchIssues() → GET /api/issues/search?jql=...
-        ↓
-Backend: jiraRequest('POST', '/search/jql', { body: { jql, ... } })
-        ↓
-Jira: POST /rest/api/3/search/jql
-        ↓
-Response: Issue list displayed in table
-```
+
+<img width="600" height="516" alt="_- visual selection (8)" src="https://github.com/user-attachments/assets/5e383150-978a-46c4-ad9b-426ea84eec3e" />
+
 
 ---
 
@@ -554,17 +542,9 @@ Response: Issue list displayed in table
 4. View detailed information including status, assignee, priority
 
 **API Flow:**
-```
-Frontend: User enters key and clicks Load
-        ↓
-getIssue('ESA-1') → GET /api/issues/ESA-1
-        ↓
-Backend: jiraRequest('GET', '/issue/ESA-1', { params: { fields: '...' } })
-        ↓
-Jira: GET /rest/api/3/issue/ESA-1?fields=...
-        ↓
-Response: Detailed issue information displayed
-```
+
+<img width="865" height="636" alt="_- visual selection (7)" src="https://github.com/user-attachments/assets/05556b3b-4386-41a1-b618-cac43716e2b8" />
+
 
 ---
 
@@ -580,18 +560,9 @@ Response: Detailed issue information displayed
 4. Success message shows new issue key
 
 **API Flow:**
-```
-Frontend: User fills form and clicks Create
-        ↓
-createIssue({ projectKey, summary, ... })
-        ↓
-POST /api/issues
-Backend: jiraRequest('POST', '/issue', { body: { fields: { ... } } })
-        ↓
-Jira: POST /rest/api/3/issue
-        ↓
-Response: Issue created, key displayed (e.g., ESA-42)
-```
+
+<img width="625" height="523" alt="_- visual selection (6)" src="https://github.com/user-attachments/assets/94041a28-6cb2-4b69-aedc-bc5921344530" />
+
 
 ---
 
@@ -722,7 +693,7 @@ npm run build
 ## 📝 Project Structure
 
 ```
-SDLC-micro/
+Jira-Integration-Demo/
 ├── backend/
 │   ├── src/
 │   │   ├── index.js              # Express app setup
